@@ -24,6 +24,7 @@ dash-bootstrap-templates = "^1.0.8"
 pytest = "^7.3.1"
 flake8 = "^6.0.0"
 flake8-bugbear = "^23.5.9"
+poetry2conda = "^0.3.0"
 
 
 [tool.poetry.group.docs.dependencies]
@@ -35,3 +36,6 @@ mkdocs-click = "^0.8.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry2conda]
+name = "panelQC"
