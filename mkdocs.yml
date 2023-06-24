@@ -1,0 +1,41 @@
+site_name: DeepSeqCoverageQC
+site_description: Compute coverageQC for targeted deep sequencing data
+site_url: https://example.com/
+authors:
+    - Pandurang Kolekar
+
+date: 2023-06-24
+
+markdown_extensions:
+  - mkdocs-click
+  - toc:
+        baselevel: 4
+  - attr_list
+  - def_list
+  - tables
+  - footnotes  
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_section_style: list
+            members_order: source
+            show_root_heading: true
+            show_source: false
+            show_signature_annotations: true  
+
+
+nav:
+    - Home: index.md
+    - CLI Reference: cli_reference.md
+
+theme: 
+  name: readthedocs
+
