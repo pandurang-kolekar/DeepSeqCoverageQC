@@ -7,7 +7,7 @@ import sys
 import os
 from glob import glob
 import pandas as pd
-from dash import Dash, dcc, html, dash_table, Input, Output, callback, State
+from dash import Dash, dcc, html, Input, Output, callback, State
 import plotly.express as px
 import dash_ag_grid as dag
 import dash_bootstrap_components as dbc
@@ -46,11 +46,6 @@ colOrder = [
     "Mean", "SD", "basecount_2SD", "basecount_1.5SD", "basecount_1SD"
 ]
 
-colOrderOld = [
-    "Sample", "Chr", "Start", "End", "Gene", "RegionLength",
-    "Mean", "SD", "basecount_2SD", "basecount_1.5SD", "basecount_1SD"
-]
-
 regionDf = regionDf[colOrder]
 
 samplesDf = getRegionQC(summaryFiles)
@@ -72,13 +67,6 @@ def getSampleMeanSd(df, sample):
     return mean, mean2sd
 
 
-def getSampleMeanSdOld(df, sample):
-    mean = list(df.loc[df['Sample'].str.contains(sample), 'Mean'])[0]
-    sd = list(df.loc[df['Sample'].str.contains(sample), 'SD'])[0]
-    mean2sd = mean - 2*sd
-    return mean, mean2sd
-
-
 for sample in regionDf.Sample.unique():
     tfg = px.histogram(
         data_frame=regionDf[regionDf['Sample'] == sample], x="Mean",
@@ -93,31 +81,6 @@ for sample in regionDf.Sample.unique():
 header = html.H4(
     "DeepSeqCoverageQC Explorer",
     className="bg-primary text-white p-2 mb-2 text-center"
-)
-
-regionTableOld = html.Div(
-    dash_table.DataTable(
-        id="regionTable",
-        columns=[
-            {"name": i, "id": i, "deletable": True} for i in regionDf.columns
-        ],
-        data=regionDf.to_dict("records"),
-        page_size=15,
-        editable=True,
-        cell_selectable=True,
-        filter_action="native",
-        sort_action="native",
-        style_header={
-            'backgroundColor': 'rgb(210, 210, 210)',
-            'color': 'black',
-            'fontWeight': 'bold'
-        },
-        style_cell={'textAlign': 'left'},
-        style_table={"overflowX": "auto", 'textAlign': 'left'},
-        row_selectable="multi",
-        fill_width=True
-    ),
-    className="dbc-row-selectable",
 )
 
 colDefSummaryQc = [
@@ -146,28 +109,6 @@ colDefSummaryQc = [
      "(sample average coverage - 1*SD)"},
 
 ]
-
-colDefSummaryQcOld = [
-    {'field': 'Sample', 'type': 'text', 'filter': 'agTextColumnFilter',
-     'minWidth': 150, 'headerTooltip': "Sample name"},
-    {'field': 'Mean', 'minWidth': 80,
-     'headerTooltip': "Average depth of coverage across all the"
-     " panel positions"},
-    {'field': 'SD', 'minWidth': 80,
-     'headerTooltip': "Standard deviation of depth of coverage across all "
-     "the panel positions"},
-    {'field': 'Pcntbase_2SD', 'minWidth': 80,
-     'headerTooltip': "% bases with depth of covarafe > (sample average "
-     "coverage - 2*SD)"},
-    {'field': 'Pcntbase_1pt5SD', 'minWidth': 80,
-     'headerTooltip': "% bases with depth of covarafe > (sample average "
-     "coverage - 1.5*SD)"},
-    {'field': 'Pcntbase_1SD', 'minWidth': 80,
-     'headerTooltip': "% bases with depth of covarafe > (sample average "
-     "coverage - 1*SD)"},
-
-]
-
 
 tableSummary = html.Div(
     dag.AgGrid(
@@ -332,7 +273,7 @@ cards = html.Div([html.Br(), row_1, row_2, row_3])
 
 # endregion
 
-tab1 = dbc.Tab([
+tab_tableBrowser = dbc.Tab([
     html.Br(),
     html.H4("Region QC Table", style={'textAlign': 'center'}),
     dbc.Row(
@@ -349,28 +290,21 @@ tab1 = dbc.Tab([
     ]),
 ], label="QC Table Browser", activeTabClassName="fw-bold fst-italic")
 
-tab2 = dbc.Tab([
+tab_regionQc = dbc.Tab([
     dbc.Row([
         dbc.Col([tableControls], width=3),
         dbc.Col([html.Div(children=output, id="qcPlots")], width=9)
     ]),
 ], label="Region QC", activeTabClassName="fw-bold fst-italic")
 
-tab3 = dbc.Tab([
+tab_summaryMetrics = dbc.Tab([
     dbc.Row([
         cards,
     ]),
 
 ], label="Summary Metrics", activeTabClassName="fw-bold fst-italic")
 
-
-# tab2 = dbc.Tab([
-# dbc.Row([
-# dbc.Col([dcc.Graph(id="histogram-chart-1")], width=8),
-# ]),
-# ], label="Region QC Histogram")
-# tab6 = dbc.Tab([regionTable], label="RegionQC Table", className="p-4")
-tabs = dbc.Card(dbc.Tabs([tab1, tab2, tab3]))
+tabs = dbc.Card(dbc.Tabs([tab_tableBrowser, tab_regionQc, tab_summaryMetrics]))
 
 app.layout = dbc.Container(
     [
