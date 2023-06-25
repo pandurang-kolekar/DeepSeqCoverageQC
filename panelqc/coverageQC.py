@@ -68,6 +68,12 @@ def computeSampleSummary(
     cut_2SD = sampleMean - 2 * sampleSd
     cut_1pt5SD = sampleMean - 1.5 * sampleSd
     cut_1SD = sampleMean - 1 * sampleSd
+    quantile_20 = round(summaryPosCount[sampleName].quantile(0.2), 2)
+    fold_80 = round(sampleMean/quantile_20, 2)
+    uoc = round(
+        (len(summaryPosCount[summaryPosCount[sampleName] > 0.2*sampleMean]) /
+         len(summaryPosCount))*100, 2
+    )
 
     return {
         'Sample': sampleName,
@@ -75,7 +81,10 @@ def computeSampleSummary(
         'sampleSD': sampleSd,
         'cut_2SD': cut_2SD,
         'cut_1pt5SD': cut_1pt5SD,
-        'cut_1SD': cut_1SD
+        'cut_1SD': cut_1SD,
+        'quantile_20': quantile_20,
+        'fold_80': fold_80,
+        'uniformityOfCoverage': uoc
     }
 
 
