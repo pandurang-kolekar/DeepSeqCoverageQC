@@ -74,11 +74,13 @@ def computeSampleSummary(
         (len(summaryPosCount[summaryPosCount[sampleName] > 0.2*sampleMean]) /
          len(summaryPosCount))*100, 2
     )
+    cov = round(sampleSd/sampleMean, 2)
 
     return {
         'Sample': sampleName,
         'sampleMean': sampleMean,
         'sampleSD': sampleSd,
+        'CV': cov,
         'cut_2SD': cut_2SD,
         'cut_1pt5SD': cut_1pt5SD,
         'cut_1SD': cut_1SD,
