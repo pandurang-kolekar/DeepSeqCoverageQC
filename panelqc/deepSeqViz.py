@@ -53,7 +53,9 @@ def generateScatterPlot(samplesDf, x, y, template=None, labels=None):
             'Sample': 'Sample(s)',
             'fold_80': 'Fold-80',
             'CV': 'Coefficient of variation',
-            'sampleMean': 'Average depth of coverage'
+            'sampleMean': 'Average depth of coverage',
+            'sampleMedian': 'Median depth of coverage',
+            'uniformityOfCoverage': 'Uniformity of Coverage',
         }
     lnFig = px.line(
         data_frame=samplesDf.sort_values(by=y),
@@ -324,7 +326,6 @@ row1 = dbc.Row(
             title=f"{noSnps}",
             header="Number of SNPs outside gene regions",
         ), color="primary", outline=True), width=3),
-
     ],
 
     className="mb-3",
