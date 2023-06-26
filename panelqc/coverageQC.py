@@ -64,6 +64,7 @@ def computeSampleSummary(
         print(f"{summaryCountFile}\n")
 
     sampleMean = round(summaryPosCount[sampleName].mean(), 2)
+    sampleMedian = round(summaryPosCount[sampleName].median(), 2)
     sampleSd = round(summaryPosCount[sampleName].std(), 2)
     cut_2SD = sampleMean - 2 * sampleSd
     cut_1pt5SD = sampleMean - 1.5 * sampleSd
@@ -79,6 +80,7 @@ def computeSampleSummary(
     return {
         'Sample': sampleName,
         'sampleMean': sampleMean,
+        'sampleMedian': sampleMedian,
         'sampleSD': sampleSd,
         'CV': cov,
         'cut_2SD': cut_2SD,
