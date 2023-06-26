@@ -145,6 +145,18 @@ colDefSummaryQc = [
     {'field': 'sampleMean', 'minWidth': 80,
      'headerTooltip': "Average depth of coverage across all the "
      "panel positions"},
+    {'field': 'sampleMedian', 'minWidth': 80,
+     'headerTooltip': "Median depth of coverage across all the "
+     "panel positions"},
+    {'field': 'CV', 'minWidth': 80,
+     'headerTooltip': "Coefficient of variation of  depth of coverage across"
+     " all the panel positions"},
+    {'field': 'uniformityOfCoverage', 'minWidth': 80,
+     'headerTooltip': "Uniformity of depth of coverage across"
+     " all the panel positions"},
+    {'field': 'fold_80', 'minWidth': 80,
+     'headerTooltip': "Fold-80. The fold of additional sequencing required to"
+     " ensure that 80% of the target bases achieve Average depth of coverage"},
     {'field': 'sampleSD', 'minWidth': 80,
      'headerTooltip': "Standard deviation of depth of coverage across "
      "all the panel positions"},
