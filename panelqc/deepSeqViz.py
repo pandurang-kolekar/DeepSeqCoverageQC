@@ -16,7 +16,7 @@ from dash_bootstrap_templates import ThemeChangerAIO, template_from_url
 # stylesheet with the .dbc class
 dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/\
     dbc.min.css"
-app = Dash(__name__, external_stylesheets=[dbc.themes.PULSE, dbc_css])
+app = Dash(__name__, external_stylesheets=[dbc.themes.COSMO, dbc_css])
 
 # system arguments
 if len(sys.argv) > 1:
@@ -29,7 +29,7 @@ def getRegionQC(regionFiles):
     """Concat QCs across files with sample names"""
     dfList = []
     for file in regionFiles:
-        sampleDf = pd.read_csv(file, sep="\t")
+        sampleDf = pd.read_csv(file, sep="\t", low_memory=False)
 
         sample = os.path.basename(file).split(".")[0].replace(
                 "Panel_regionQC_", ""
@@ -37,6 +37,60 @@ def getRegionQC(regionFiles):
         sampleDf['Sample'] = sample
         dfList.append(sampleDf)
     return pd.concat(dfList).reset_index(drop=True)
+
+
+def getSampleMeanSd(df, sample):
+    """Get mean and 2SD cut-off for the sample"""
+    mean = list(df.loc[df['Sample'].str.contains(sample), 'sampleMean'])[0]
+    sd = list(df.loc[df['Sample'].str.contains(sample), 'sampleSD'])[0]
+    mean2sd = mean - 2*sd
+    return mean, mean2sd
+
+
+def generateScatterPlot(samplesDf, x, y, template=None, labels=None):
+    if labels is None:
+        labels = {
+            'Sample': 'Sample(s)',
+            'fold_80': 'Fold-80',
+            'CV': 'Coefficient of variation',
+            'sampleMean': 'Average depth of coverage'
+        }
+    lnFig = px.line(
+        data_frame=samplesDf.sort_values(by=y),
+        x=x, y=y
+    )
+    return px.scatter(
+        data_frame=samplesDf.sort_values(by=y),
+        x=x, y=y, labels=labels,
+        marginal_y='box', template=template,
+    ).update_yaxes(rangemode="tozero").add_traces(lnFig.data)
+
+
+def generateFigureCard(title, id, fig):
+    return [
+        dbc.CardBody(
+            [
+                html.H5(title, className="card-title"),
+                dcc.Graph(
+                    id=id,
+                    figure=fig
+                ),
+            ]
+        ),
+    ]
+
+
+def generateInfoCard(title, header, para=""):
+    return [
+            dbc.CardHeader(header),
+            dbc.CardBody([
+                html.H5(title, className="card-title"),
+                html.P(
+                    para,
+                    className="card-text",
+                ),
+            ]),
+    ]
 
 
 regionDf = getRegionQC(regionFiles)
@@ -47,6 +101,16 @@ colOrder = [
 ]
 
 regionDf = regionDf[colOrder]
+uniqueRegionsDf = regionDf[[
+    "Chr", "Start", "End", "Gene", "RegionLength"
+]].drop_duplicates()
+
+nGenes = uniqueRegionsDf.loc[
+    uniqueRegionsDf['RegionLength'] > 1, 'Gene'
+].nunique()
+
+ngRegions = len(uniqueRegionsDf[uniqueRegionsDf['RegionLength'] > 1])
+noSnps = len(uniqueRegionsDf[uniqueRegionsDf['RegionLength'] == 1])
 
 samplesDf = getRegionQC(summaryFiles)
 samplesDf.rename(columns={
@@ -58,14 +122,6 @@ samples = list(samplesDf['Sample'].unique())
 minDepth = regionDf.Mean.min()
 maxDepth = regionDf.Mean.max()
 output = []
-
-
-def getSampleMeanSd(df, sample):
-    mean = list(df.loc[df['Sample'].str.contains(sample), 'sampleMean'])[0]
-    sd = list(df.loc[df['Sample'].str.contains(sample), 'sampleSD'])[0]
-    mean2sd = mean - 2*sd
-    return mean, mean2sd
-
 
 for sample in regionDf.Sample.unique():
     tfg = px.histogram(
@@ -184,10 +240,12 @@ sampleDropdown = html.Div(
     [
         dbc.Label("Select Sample"),
         dcc.Dropdown(
-            ['All'] + samples,
-            'All',
+            samples,
+            samples[0:2],
             id="sample",
             clearable=False,
+            multi=True,
+            searchable=True
         ),
     ],
     className="mb-4",
@@ -244,34 +302,75 @@ card_content = [
     ),
 ]
 
-row_1 = dbc.Row(
+row1 = dbc.Row(
     [
-        dbc.Col(dbc.Card(card_content, color="primary", outline=True)),
-        dbc.Col(dbc.Card(card_content, color="secondary", outline=True)),
-        dbc.Col(dbc.Card(card_content, color="info", outline=True)),
+        dbc.Col(dbc.Card(generateInfoCard(
+            title=f"{round(uniqueRegionsDf['RegionLength'].sum()/1e6, 2)} "
+            "Mbp",
+            header="Size of the panel"
+        ), color="primary", outline=True), width=2),
+        dbc.Col(dbc.Card(generateInfoCard(
+            title=f"{nGenes}",
+            header="Number of Genes"
+        ), color="primary", outline=True), width=2),
+        dbc.Col(dbc.Card(generateInfoCard(
+            title=f"{ngRegions}",
+            header="Number of Gene Regions"
+        ), color="primary", outline=True), width=3),
+        dbc.Col(dbc.Card(generateInfoCard(
+            title="7590",
+            header="Total Number of SNPs"
+        ), color="primary", outline=True), width=2),
+        dbc.Col(dbc.Card(generateInfoCard(
+            title=f"{noSnps}",
+            header="Number of SNPs outside gene regions",
+        ), color="primary", outline=True), width=3),
+
     ],
-    className="mb-4",
+
+    className="mb-3",
 )
 
-row_2 = dbc.Row(
+
+row2 = dbc.Row(
     [
-        dbc.Col(dbc.Card(card_content, color="success", outline=True)),
-        dbc.Col(dbc.Card(card_content, color="warning", outline=True)),
-        dbc.Col(dbc.Card(card_content, color="danger", outline=True)),
+        dbc.Col(dbc.Card(generateFigureCard(
+            title="Average Depth of Coverage", id='adc',
+            fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='sampleMean',
+            )
+        ), color="primary", outline=True, id="adcCard"), width=6),
+        dbc.Col(dbc.Card(generateFigureCard(
+            title="Uniformity of Coverage", id='uoc', fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='uniformityOfCoverage',
+            )
+        ), color="primary", outline=True, id="uocCard"), width=6),
     ],
-    className="mb-4",
+    className="mb-3",
 )
 
-row_3 = dbc.Row(
+row3 = dbc.Row(
     [
-        dbc.Col(dbc.Card(card_content, color="light", outline=True)),
-        dbc.Col(dbc.Card(card_content, color="dark", outline=True)),
-    ]
+        dbc.Col(dbc.Card(generateFigureCard(
+            title="Coefficient of variation", id='cv',
+            fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='CV',
+            )
+        ), color="primary", outline=True, id="cvCard"), width=6),
+        dbc.Col(dbc.Card(generateFigureCard(
+            title="Fold-80", id='f80', fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='fold_80',
+            )
+        ), color="primary", outline=True, id="f80Card"), width=6),
+    ],
+    className="mb-3",
 )
 
-cards = html.Div([html.Br(), row_1, row_2, row_3])
+
+cards = html.Div([html.Br(), row1, row2, row3])
 
 # endregion
+
 
 tab_tableBrowser = dbc.Tab([
     html.Br(),
@@ -295,16 +394,16 @@ tab_regionQc = dbc.Tab([
         dbc.Col([tableControls], width=3),
         dbc.Col([html.Div(children=output, id="qcPlots")], width=9)
     ]),
-], label="Region QC", activeTabClassName="fw-bold fst-italic")
+], label="Sample QC", activeTabClassName="fw-bold fst-italic")
 
 tab_summaryMetrics = dbc.Tab([
     dbc.Row([
         cards,
     ]),
 
-], label="Summary Metrics", activeTabClassName="fw-bold fst-italic")
+], label="Cohort QC", activeTabClassName="fw-bold fst-italic")
 
-tabs = dbc.Card(dbc.Tabs([tab_tableBrowser, tab_regionQc, tab_summaryMetrics]))
+tabs = dbc.Card(dbc.Tabs([tab_summaryMetrics, tab_regionQc, tab_tableBrowser]))
 
 app.layout = dbc.Container(
     [
@@ -313,7 +412,7 @@ app.layout = dbc.Container(
             dbc.Col(
                 [
                     ThemeChangerAIO(
-                        aio_id="theme", radio_props={"value": dbc.themes.PULSE}
+                        aio_id="theme", radio_props={"value": dbc.themes.COSMO}
                     )
                 ]
             ),
@@ -330,8 +429,11 @@ app.layout = dbc.Container(
 
 
 @callback(
-    Output("regionTable", "rowData"),
     Output("qcPlots", "children"),
+    Output("adcCard", "children"),
+    Output("uocCard", "children"),
+    Output("cvCard", "children"),
+    Output("f80Card", "children"),
     Input("regionTable", "rowData"),
     Input("sample", "value"),
     Input("depth", "value"),
@@ -340,8 +442,10 @@ app.layout = dbc.Container(
 )
 def updateRegionTable(vdata, sample, depth, numBins, theme):
     dff = pd.DataFrame(vdata) if vdata else regionDf
+    nSamples = [sample] if type(sample) == 'str' else list(sample)
+    template = template_from_url(theme)
     dff = regionDf if sample == 'All' else dff[
-        regionDf['Sample'] == sample
+        regionDf['Sample'].isin(nSamples)
     ]
     dff = dff[dff.Mean.between(depth[0], depth[1])]
     output = []
@@ -349,7 +453,7 @@ def updateRegionTable(vdata, sample, depth, numBins, theme):
         tfg = px.histogram(
             data_frame=dff[dff['Sample'] == sampleName], x="Mean",
             title=sampleName,  marginal="box",
-            template=template_from_url(theme), nbins=numBins
+            template=template, nbins=numBins
         )
         mean, mean2sd = getSampleMeanSd(samplesDf, sampleName)
         tfg.add_vline(x=mean, line_color="magenta")
@@ -362,8 +466,35 @@ def updateRegionTable(vdata, sample, depth, numBins, theme):
         output.append(
             dcc.Graph(id=f'example-graph{str(sampleName)}', figure=tfg)
         )
+    adcFig = generateFigureCard(
+            title="Average Depth of Coverage", id='adc',
+            fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='sampleMean',
+                template=template
+            )
+        )
 
-    return dff.to_dict("records"), output
+    uocFig = generateFigureCard(
+            title="Uniformity of Coverage", id='uoc', fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='uniformityOfCoverage',
+                template=template
+            )
+        )
+
+    cvFig = generateFigureCard(
+            title="Coefficient of variation", id='cv',
+            fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='CV', template=template
+            )
+        )
+
+    f80Fig = generateFigureCard(
+            title="Fold-80", id='f80', fig=generateScatterPlot(
+                samplesDf=samplesDf, x='Sample', y='fold_80', template=template
+            )
+        )
+
+    return output, adcFig, uocFig, cvFig, f80Fig
 
 
 @callback(
@@ -374,7 +505,7 @@ def updateRegionTable(vdata, sample, depth, numBins, theme):
 )
 def download_data(n_clicks, data):
     dff = pd.DataFrame(data)
-    return dcc.send_data_frame(dff.to_csv, "filtered_csv.csv")
+    return dcc.send_data_frame(dff.to_csv, "filtered.csv")
 
 
 if __name__ == "__main__":
