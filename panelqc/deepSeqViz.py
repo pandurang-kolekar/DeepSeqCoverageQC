@@ -289,21 +289,12 @@ downloadComponent = html.Div([dcc.Download(id="download")])
 
 # region Cards for Summary metrics tab
 
-card_content = [
-    dbc.CardHeader("Size of the Panel"),
-    dbc.CardBody(
-        [
-            html.H5("Card title", className="card-title"),
-            html.P(
-                "This is some card content that we'll reuse",
-                className="card-text",
-            ),
-        ]
-    ),
-]
-
 row1 = dbc.Row(
     [
+        dbc.Col(dbc.Card(generateInfoCard(
+            title=f"{samplesDf['Sample'].nunique()}",
+            header="#Samples in the cohort"
+        ), color="primary", outline=True), width=2),
         dbc.Col(dbc.Card(generateInfoCard(
             title=f"{round(uniqueRegionsDf['RegionLength'].sum()/1e6, 2)} "
             "Mbp",
@@ -318,10 +309,6 @@ row1 = dbc.Row(
             header="Number of Gene Regions"
         ), color="primary", outline=True), width=3),
         dbc.Col(dbc.Card(generateInfoCard(
-            title="7590",
-            header="Total Number of SNPs"
-        ), color="primary", outline=True), width=2),
-        dbc.Col(dbc.Card(generateInfoCard(
             title=f"{noSnps}",
             header="Number of SNPs outside gene regions",
         ), color="primary", outline=True), width=3),
@@ -330,7 +317,6 @@ row1 = dbc.Row(
 
     className="mb-3",
 )
-
 
 row2 = dbc.Row(
     [
