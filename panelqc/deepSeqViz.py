@@ -411,7 +411,9 @@ app.layout = dbc.Container(
             dbc.Col(
                 [
                     ThemeChangerAIO(
-                        aio_id="theme", radio_props={"value": dbc.themes.COSMO}
+                        aio_id="theme",
+                        radio_props={"value": dbc.themes.COSMO},
+                        button_props={"color": "dark"},
                     )
                 ]
             ),
