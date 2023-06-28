@@ -2,11 +2,9 @@
 
 ## GitHub
 
+- :octicons-mark-github-16: Repository - [https://github.com/pandurang-kolekar/panelQC](https://github.com/pandurang-kolekar/panelQC)
 - Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
-![GitHub](https://skillicons.dev/icons?i=github)
-
-[https://github.com/pandurang-kolekar/panelQC](https://github.com/pandurang-kolekar/panelQC)
 
 ```
 $ git clone https://github.com/pandurang-kolekar/panelQC.git

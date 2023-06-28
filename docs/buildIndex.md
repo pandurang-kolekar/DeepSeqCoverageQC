@@ -3,7 +3,7 @@
 ### Generate index for the panel
 
 ```
-$ DeepSeqCoverageQC buildIndex --help
+DeepSeqCoverageQC buildIndex --help
 ```
 
 ::: mkdocs-click

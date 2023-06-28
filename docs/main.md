@@ -11,9 +11,11 @@
 
 - Application can be run from the terminal as follows,
 
+```bash
+DeepSeqCoverageQC --help
 ```
-$ DeepSeqCoverageQC --help
 
+```
 Usage: DeepSeqCoverageQC [OPTIONS] COMMAND [ARGS]...
 
  DeepSeqCoverageQC: Compute coverageQC for targeted deep sequencing data

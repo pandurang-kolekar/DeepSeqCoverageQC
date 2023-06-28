@@ -1,6 +1,6 @@
 ---
 title: DeepSeqCoverageQC
-summary: A Python library for computing coverage QC metrics for deep sequencing data.
+summary: A Python library for computing coverage QC metrics for targeted deep sequencing data.
 authors:
     - Pandurang Kolekar
 
@@ -24,7 +24,7 @@ This site contains the project documentation for the
 5. [Generating count files](generateCounts.md)
 
 ## LICENSE
-
+```
 Copyright 2023 Pandurang Kolekar
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,7 +38,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
+```
 ## Contact
 
 - [Pandurang Kolekar](mailto:pandurang.kolekar@gmail.com)
