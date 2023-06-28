@@ -34,7 +34,12 @@ plugins:
 
 nav:
     - Home: index.md
-    - CLI Reference: cli_reference.md
+    - Installation: install.md
+    - Main application: main.md
+    - Build Index: buildIndex.md
+    - Compute coverage QC: computeCoverage.md
+    - Generating count files: generateCounts.md
+    
 
 theme: 
   name: readthedocs
