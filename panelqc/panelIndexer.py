@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Generate index for the panel
+"""
+
 import os
 import errno
 from pathlib import Path
