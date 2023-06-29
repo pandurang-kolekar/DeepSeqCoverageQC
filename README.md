@@ -44,7 +44,7 @@
 </p>
 
 ---
-## Quick Start
+# Quick Start
 
 ## Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
@@ -136,3 +136,11 @@ Usage: DeepSeqCoverageQC computeCoverageQC [OPTIONS]
 ╰───────────────────────────────────────────────────────────────────────────────────╯
 
 ```
+
+# Contact
+
+- [Pandurang Kolekar](mailto:pandurang.kolekar@gmail.com)
+
+# COPYRIGHT
+
+Copyright © 2023 Pandurang Kolekar, St. Jude Children's Research Hospital
