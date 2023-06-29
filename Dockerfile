@@ -10,7 +10,7 @@ LABEL "org.opencontainers.image.version"="0.1.0"
 LABEL "org.opencontainers.image.base.name"="python:3.9-slim-buster"
 LABEL "org.opencontainers.image.url"="https://github.com/pandurang-kolekar/panelQC"
 LABEL "org.opencontainers.image.licenses"="Apache License, Version 2.0"
-LABEL "about.tags"="NGS BAM panel coverage QC depth"
+LABEL "about.tags"="NGS BAM panel coverage QC depth targeted sequencing"
 LABEL "org.opencontainers.image.authors"="Pandurang Kolekar <pandurang.kolekar@gmail.com>"
 
 ################## INSTALLATION ###########################
