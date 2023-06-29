@@ -10,4 +10,6 @@ def test_expandRegion():
 
 
 def test_expandRegionWithPadding():
-    assert deepseqcoverageqc.panelIndexer.expandRegion(10, 10, 1) == [9, 10, 11]
+    assert deepseqcoverageqc.panelIndexer.expandRegion(
+        10, 10, 1
+    ) == [9, 10, 11]
