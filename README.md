@@ -29,7 +29,7 @@
 
   <p align="center">
    <br/>
-   <a href="https://pandurang-kolekar.github.io/DeepSeqCoverageQC/"><strong>Explore the docs »</strong></a>
+   <a href="https://pandurang-kolekar.github.io/DeepSeqCoverageQC/" target="_blank"><strong>Explore the docs »</strong></a>
    <br />
    <a href="#"><strong>Read the paper »</strong></a>
    <br />
