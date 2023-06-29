@@ -1,4 +1,4 @@
-import panelqc.panelIndexer
+import deepseqcoverageqc.panelIndexer
 
 """
 Basic Test cases
@@ -6,8 +6,8 @@ Basic Test cases
 
 
 def test_expandRegion():
-    assert panelqc.panelIndexer.expandRegion(10, 10, 0) == [10]
+    assert deepseqcoverageqc.panelIndexer.expandRegion(10, 10, 0) == [10]
 
 
 def test_expandRegionWithPadding():
-    assert panelqc.panelIndexer.expandRegion(10, 10, 1) == [9, 10, 11]
+    assert deepseqcoverageqc.panelIndexer.expandRegion(10, 10, 1) == [9, 10, 11]
