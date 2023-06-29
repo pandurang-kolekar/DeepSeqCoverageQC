@@ -36,4 +36,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry2conda]
-name = "panelQC"
+name = "DeepSeqCoverageQC"
