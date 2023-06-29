@@ -44,9 +44,9 @@
 </p>
 
 ---
-# Quick Start
+## Quick Start
 
-## Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+### Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
 
 ```
@@ -56,16 +56,16 @@ python -m pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
 DeepSeqCoverageQC --help
 ```
 
-## Using Pip
-> Note
+### Using Pip
+> **Note**
 >   Requires Python version >=3.9
     
 ```
 pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
 ```
-# Usage
+## Usage
 
-DeepSeqCoverageQC is command line interface (CLI) app with the following commands
+`DeepSeqCoverageQC` is a command line interface (CLI) app with the following commands
 
 ```bash
 $ DeepSeqCoverageQC --help
@@ -84,7 +84,7 @@ Usage: DeepSeqCoverageQC [OPTIONS] COMMAND [ARGS]...
 
 ```
 
-## Build panel index
+### Build panel index
 
 ```bash
 
@@ -103,7 +103,7 @@ Generate index for the panel
 ╰───────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-## Compute region and sample level QC metrics
+### Compute region and sample level QC metrics
 
 ```bash
 
@@ -137,10 +137,14 @@ Usage: DeepSeqCoverageQC computeCoverageQC [OPTIONS]
 
 ```
 
-# Contact
+## Publication
+
+Manuscript under preparation
+
+## Contact
 
 - [Pandurang Kolekar](mailto:pandurang.kolekar@gmail.com)
 
-# COPYRIGHT
+## COPYRIGHT
 
 Copyright © 2023 Pandurang Kolekar, St. Jude Children's Research Hospital
