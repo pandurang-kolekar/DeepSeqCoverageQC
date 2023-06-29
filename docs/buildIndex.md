@@ -7,7 +7,7 @@ DeepSeqCoverageQC buildIndex --help
 ```
 
 ::: mkdocs-click
-    :module: deeseqcoverageqc.panelQC
+    :module: deepseqcoverageqc.panelQC
     :command: buildIndex
     :depth: 0
     :style: table

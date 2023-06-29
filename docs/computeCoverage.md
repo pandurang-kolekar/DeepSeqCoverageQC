@@ -1,7 +1,7 @@
 # Compute coverage QC metrics over regions in the panel
 
 ::: mkdocs-click
-    :module: deeseqcoverageqc.panelQC
+    :module: deepseqcoverageqc.panelQC
     :command: computeCoverageQC
     :depth: 0
     :list_subcommands: True
