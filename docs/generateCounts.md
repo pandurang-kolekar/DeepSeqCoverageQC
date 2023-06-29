@@ -2,24 +2,30 @@
 
 !!! note "How to generate count files?"
 
-    The count files should be generated using SequencErr[^1]
+    - The count files should be generated using SequencErr[^1]
+  
+    - **Publication**: Davis, E.M. et al. SequencErr: measuring and suppressing sequencer errors in next-generation sequencing data. Genome Biol 22(1):37 (2021). doi: [10.1186/s13059-020-02254-2](https://doi.org/10.1186/s13059-020-02254-2)
+
+    - Read more about SequencErr documentation [here](https://university.stjude.cloud/docs/genomics-platform/workflow-guides/sequencerr/)
+
+    - :simple-docker: [DockerHub](https://hub.docker.com/r/stjudecloud/sequencerr)
+
+### :simple-docker: Docker image for SequencErr can be run as follows
+
+```
+docker run stjudecloud/sequencerr:branch-sequencErr-1.0.0
+```
 
 - Users are recommended to use `-regions` option to provide panel BED file to 
   restrict the counts to positions in the panel
 
 ```
-$ sequencerr_2.09
-
-Usage: sequencerr_2.09 [OPTION...] bam outfile
-
 REQUIRED:
  bam                      Bamfile input, sorted by CHROM then START. A bam index must be present in the CWD.
  outfile                  Output file names to hold the base counts per coordinate.
 
 OPTIONS:
--STDOUT=chr:start-end     Standard output for a specific region, no saved file needed.
--prefix=Chr/chr           Add prefix <text> to first column.
--regions=file.bed         Bed file of regions to report. Lines don't need to be sorted by chromosomes,
+ -regions=file.bed        Bed file of regions to report. Lines don't need to be sorted by chromosomes,
                           but coordinates within a chromosome must be sorted by START, END.
                              Reference names must match what's in the bamfile header.
 
@@ -39,7 +45,6 @@ OPTIONS:
 
  -nodesize=int            Size of counter memory block allocation in base pairs. Larger is better for WGS, smaller is better for sparse data
                           such as that found in amplicon or whole exome sequencing. Default is 4096
- -minmapq=int             Sets a minimum MAPQ threshold that must be exceeded by a read's MAPQ in order to be counted. Default is 55
 
 Citations:
 
