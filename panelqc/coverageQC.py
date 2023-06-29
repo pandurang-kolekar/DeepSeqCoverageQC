@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+"""
+Compute Coverage QC metrics
+"""
+
 import os
 from pathlib import Path
 from typing import Tuple
