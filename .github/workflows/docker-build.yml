@@ -1,14 +1,14 @@
 name: Docker Image
 
-#on:
-#  release:
-#    types: [published]
-#    branches:
-#      - "main"
-
 on:
- - push
- - pull_request
+  release:
+    types: [published]
+    branches:
+      - "main"
+
+#on:
+# - push
+# - pull_request
 
 jobs:
   build:
