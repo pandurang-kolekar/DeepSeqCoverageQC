@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "panelqc"
+name = "DeepSeqCoverageQC"
 version = "0.1.0"
 description = "Compute coverage QC metrics for deep targeted sequencing data"
 authors = ["Pandurang Kolekar <pandurang.kolekar@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.scripts]
-DeepSeqCoverageQC = "panelqc.panelQC:DeepSeqCoverageQC"
+DeepSeqCoverageQC = "deepseqcoverageqc.panelQC:DeepSeqCoverageQC"
 
 
 [tool.poetry.dependencies]
