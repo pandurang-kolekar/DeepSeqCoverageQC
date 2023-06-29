@@ -58,10 +58,10 @@ DeepSeqCoverageQC --help
 
 ### Using Pip
 > **Note**
->   Requires Python version >=3.9
+>   Requires [Python](https://www.python.org/) version >=3.9
     
 ```
-pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
+python -m pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
 ```
 ## Usage
 
