@@ -56,12 +56,12 @@ date: 2023-06-24
 
 ## Table Of Contents
 
-1. [Installation](install.md)
-2. [Main application - commands](main.md)
-3. [Build index](buildIndex.md)
-4. [Compute coverage QC](computeCoverage.md)
-5. [Generating count files](generateCounts.md)
-6. [Workflow](workflow.md)
+1. [Installation ](install.md)
+2. [Main application - commands ](main.md)
+3. [Build index ](buildIndex.md)
+4. [Compute coverage QC ](computeCoverage.md)
+5. [Generating count files ](generateCounts.md)
+6. [Workflow ](workflow.md)
 
 ## :material-license: LICENSE
 !!! License
