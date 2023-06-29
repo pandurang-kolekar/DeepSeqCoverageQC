@@ -2,8 +2,9 @@
 
 ## GitHub
 
-- :octicons-mark-github-16: Repository - [https://github.com/pandurang-kolekar/panelQC](https://github.com/pandurang-kolekar/panelQC)
-- Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+:octicons-mark-github-16: Repository - [https://github.com/pandurang-kolekar/panelQC](https://github.com/pandurang-kolekar/panelQC)
+
+:simple-anaconda: Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
 
 ```
@@ -14,7 +15,7 @@ $ conda activate panelQC
 $ pip install .
 ```
 
-## Pip
+## :simple-python: Pip
 
 - Under progress
 
