@@ -1,0 +1,76 @@
+site_name: DeepSeqCoverageQC
+site_description: Compute coverageQC for targeted deep sequencing data
+repo_url: https://github.com/pandurang-kolekar/panelQC
+site_author: Pandurang Kolekar
+copyright: "Copyright &copy; 2023 Pandurang Kolekar, St. Jude Children's Research Hospital"
+
+markdown_extensions:
+  - mkdocs-click
+  - toc:
+        baselevel: 4
+  - attr_list
+  - def_list
+  - tables
+  - footnotes  
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+        
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences  
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_section_style: list
+            members_order: source
+            show_root_heading: true
+            show_source: false
+            show_signature_annotations: true  
+
+
+nav:
+    - Home: index.md
+    - Installation: install.md
+    - Main application: main.md
+    - Build Index: buildIndex.md
+    - Compute coverage QC: computeCoverage.md
+    - Generating count files: generateCounts.md
+    - Workflow: workflow.md
+    
+
+theme: 
+  name: material
+  features:
+    - content.code.copy
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-auto 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
+
