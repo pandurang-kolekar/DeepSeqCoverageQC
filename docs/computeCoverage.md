@@ -1,7 +1,7 @@
 # Compute coverage QC metrics over regions in the panel
 
 ::: mkdocs-click
-    :module: panelqc.panelQC
+    :module: deeseqcoverageqc.panelQC
     :command: computeCoverageQC
     :depth: 0
     :list_subcommands: True
@@ -10,7 +10,7 @@
 !!! note "How to generate count files?"
 
     The count files should be generated using SequencErr[^1]
-    
+
     Please refer to [Generating count files](generateCounts.md)
 
 ## Output files
