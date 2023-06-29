@@ -44,7 +44,6 @@ plugins:
             show_source: false
             show_signature_annotations: true  
 
-
 nav:
     - Home: index.md
     - Installation: install.md
