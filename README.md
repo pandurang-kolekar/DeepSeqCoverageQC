@@ -9,19 +9,19 @@
 
   <br>
   <p align="center">
-   <a href="https://github.com/pandurang-kolekar/panelQC" target="_blank">
+   <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC" target="_blank">
      <img alt="Status"
           src="https://img.shields.io/badge/status-active-success.svg" />
    </a>
-   <a href="https://github.com/pandurang-kolekar/panelQC/issues" target="_blank">
+   <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/issues" target="_blank">
      <img alt="Github Issues"
           src="https://img.shields.io/github/issues/stjudecloud/bioinformatics-tool-template"  />
    </a>
-   <a href="https://github.com/pandurang-kolekar/panelQC/pulls"  target="_blank">
+   <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/pulls"  target="_blank">
      <img alt="Pull Requests"
           src="https://img.shields.io/github/issues-pr/stjudecloud/bioinformatics-tool-template"  />
    </a>
-   <a href="https://github.com/pandurang-kolekar/panelQC/blob/main/LICENSE" target="_blank">
+   <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/blob/main/LICENSE" target="_blank">
      <img alt="License: Apache License 2.0"
           src="https://img.shields.io/badge/License-Apache2.0-blue.svg" />
    </a>
@@ -29,14 +29,14 @@
 
   <p align="center">
    <br/>
-   <a href="#"><strong>Explore the docs »</strong></a>
+   <a href="https://pandurang-kolekar.github.io/DeepSeqCoverageQC/"><strong>Explore the docs »</strong></a>
    <br />
    <a href="#"><strong>Read the paper »</strong></a>
    <br />
    <br />
-   <a href="https://github.com/pandurang-kolekar/panelQC/issues/new?assignees=&labels=&template=feature_request.md&title=Descriptive%20Title&labels=enhancement">Request Feature</a>
+   <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/issues/new?assignees=&labels=&template=feature_request.md&title=Descriptive%20Title&labels=enhancement">Request Feature</a>
     | 
-   <a href="https://github.com/pandurang-kolekar/panelQC/issues/new?assignees=&labels=&template=bug_report.md&title=Descriptive%20Title&labels=bug">Report Bug</a>
+   <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/issues/new?assignees=&labels=&template=bug_report.md&title=Descriptive%20Title&labels=bug">Report Bug</a>
    <br />
     ⭐ Consider starring the repo! ⭐
    <br />
@@ -52,7 +52,7 @@
 ```
 conda create --name panelQC python==3.9
 conda activate panelQC
-python -m pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
+python -m pip install git+https://github.com/pandurang-kolekar/DeepSeqCoverageQC.git@main
 DeepSeqCoverageQC --help
 ```
 
@@ -61,9 +61,11 @@ DeepSeqCoverageQC --help
 >   Requires [Python](https://www.python.org/) version >=3.9
     
 ```
-python -m pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
+python -m pip install git+https://github.com/pandurang-kolekar/DeepSeqCoverageQC.git@main
 ```
 ## Usage
+
+Please refer to the _detailed documentation_ [here](https://pandurang-kolekar.github.io/DeepSeqCoverageQC/)
 
 `DeepSeqCoverageQC` is a command line interface (CLI) app with the following commands
 
