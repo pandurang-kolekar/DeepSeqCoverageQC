@@ -1,0 +1,16 @@
+attrs==23.1.0
+colorama==0.4.6
+exceptiongroup==1.1.1
+flake8-bugbear==23.5.9
+flake8==6.0.0
+iniconfig==2.0.0
+mccabe==0.7.0
+packaging==23.1
+pluggy==1.0.0
+poetry-semver==0.1.0
+poetry2conda==0.3.0
+pycodestyle==2.10.0
+pyflakes==3.0.1
+pytest==7.3.1
+toml==0.10.2
+tomli==2.0.1
