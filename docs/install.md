@@ -4,6 +4,13 @@
 
 :octicons-mark-github-16: Repository - [https://github.com/pandurang-kolekar/DeepSeqCoverageQC](https://github.com/pandurang-kolekar/DeepSeqCoverageQC)
 
+
+## :simple-docker: Using [Docker](https://www.docker.com/)
+
+```bash
+docker run -it pskolekar/deepseqcoverageqc --help
+```
+
 ## :simple-anaconda: Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
 

@@ -46,10 +46,15 @@
 ---
 ## Quick Start
 
+### Using [Docker](https://www.docker.com/)
+
+```bash
+docker run -it pskolekar/deepseqcoverageqc --help
+```
+
 ### Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
-
-```
+```bash
 conda create --name panelQC python==3.9
 conda activate panelQC
 python -m pip install deepseqcoverageqc
@@ -60,7 +65,7 @@ DeepSeqCoverageQC --help
 > **Note**
 >   Requires [Python](https://www.python.org/) version >=3.9
     
-```
+```bash
 pip install deepseqcoverageqc
 ```
 ## Usage
