@@ -4,18 +4,20 @@
 
 :octicons-mark-github-16: Repository - [https://github.com/pandurang-kolekar/panelQC](https://github.com/pandurang-kolekar/panelQC)
 
-:simple-anaconda: Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+## :simple-anaconda: Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
 
 ```
-$ git clone https://github.com/pandurang-kolekar/panelQC.git
-$ cd panelQC
-$ conda env create --name panelQC --file=environment.yml
-$ conda activate panelQC
-$ pip install .
+conda create --name panelQC python==3.9
+conda activate panelQC
+python -m pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
+DeepSeqCoverageQC --help
 ```
 
-## :simple-python: Pip
-
-- Under progress
-
+## :simple-python: Using Pip
+!!! Note
+    Requires Python version >=3.9
+    
+```
+pip install git+https://github.com/pandurang-kolekar/panelQC.git@main
+```
