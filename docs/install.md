@@ -8,8 +8,8 @@
 
 
 ```
-conda create --name panelQC python==3.9
-conda activate panelQC
+conda create --name DeepSeqCoverageQC python==3.9
+conda activate DeepSeqCoverageQC
 python -m pip install git+https://github.com/pandurang-kolekar/DeepSeqCoverageQC.git@main
 DeepSeqCoverageQC --help
 ```

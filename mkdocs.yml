@@ -1,6 +1,7 @@
 site_name: DeepSeqCoverageQC
 site_description: Compute coverageQC for targeted deep sequencing data
-repo_url: https://github.com/pandurang-kolekar/panelQC
+site_url: https://pandurang-kolekar.github.io/DeepSeqCoverageQC/
+repo_url: https://github.com/pandurang-kolekar/DeepSeqCoverageQC
 site_author: Pandurang Kolekar
 copyright: "Copyright &copy; 2023 Pandurang Kolekar, St. Jude Children's Research Hospital"
 
