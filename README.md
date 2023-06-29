@@ -55,8 +55,8 @@ docker run -it pskolekar/deepseqcoverageqc --help
 ### Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 
 ```bash
-conda create --name panelQC python==3.9
-conda activate panelQC
+conda create --name DeepSeqCoverageQC python==3.9
+conda activate DeepSeqCoverageQC
 python -m pip install deepseqcoverageqc
 DeepSeqCoverageQC --help
 ```
