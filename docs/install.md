@@ -10,7 +10,7 @@
 ```
 conda create --name DeepSeqCoverageQC python==3.9
 conda activate DeepSeqCoverageQC
-python -m pip install git+https://github.com/pandurang-kolekar/DeepSeqCoverageQC.git@main
+pip install deepseqcoverageqc
 DeepSeqCoverageQC --help
 ```
 
@@ -19,5 +19,5 @@ DeepSeqCoverageQC --help
     Requires [Python](https://www.python.org/) version >=3.9
     
 ```
-python -m pip install git+https://github.com/pandurang-kolekar/DeepSeqCoverageQC.git@main
+pip install deepseqcoverageqc
 ```

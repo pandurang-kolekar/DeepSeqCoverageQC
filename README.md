@@ -52,7 +52,7 @@
 ```
 conda create --name panelQC python==3.9
 conda activate panelQC
-python -m pip install git+https://github.com/pandurang-kolekar/DeepSeqCoverageQC.git@main
+python -m pip install deepseqcoverageqc
 DeepSeqCoverageQC --help
 ```
 
@@ -61,7 +61,7 @@ DeepSeqCoverageQC --help
 >   Requires [Python](https://www.python.org/) version >=3.9
     
 ```
-python -m pip install git+https://github.com/pandurang-kolekar/DeepSeqCoverageQC.git@main
+pip install deepseqcoverageqc
 ```
 ## Usage
 
