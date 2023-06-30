@@ -15,11 +15,11 @@
    </a>
    <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/issues" target="_blank">
      <img alt="Github Issues"
-          src="https://img.shields.io/github/issues/stjudecloud/bioinformatics-tool-template"  />
+          src="https://img.shields.io/github/issues/pandurang-kolekar/DeepSeqCoverageQC"  />
    </a>
    <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/pulls"  target="_blank">
      <img alt="Pull Requests"
-          src="https://img.shields.io/github/issues-pr/stjudecloud/bioinformatics-tool-template"  />
+          src="https://img.shields.io/github/issues-pr/pandurang-kolekar/DeepSeqCoverageQC"  />
    </a>
    <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/blob/main/LICENSE" target="_blank">
      <img alt="License: Apache License 2.0"
@@ -31,7 +31,9 @@
    <br/>
    <a href="https://pandurang-kolekar.github.io/DeepSeqCoverageQC/" target="_blank"><strong>Explore the docs »</strong></a>
    <br />
+<!---   
    <a href="#"><strong>Read the paper »</strong></a>
+--->   
    <br />
    <br />
    <a href="https://github.com/pandurang-kolekar/DeepSeqCoverageQC/issues/new?assignees=&labels=&template=feature_request.md&title=Descriptive%20Title&labels=enhancement">Request Feature</a>

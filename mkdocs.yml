@@ -59,6 +59,8 @@ theme:
   name: material
   features:
     - content.code.copy
+    - navigation.footer
+
   palette: 
 
     # Palette toggle for light mode
@@ -73,4 +75,18 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin 
+      link: https://www.linkedin.com/in/pandurang-kolekar
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/Pandurang_K 
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/pskolekar
+    - icon: fontawesome/brands/github
+      link: https://github.com/pandurang-kolekar
+    - icon: fontawesome/brands/wix
+      link: http://biosakshat.wixsite.com/pandurang-kolekar 
+    - icon: fontawesome/brands/google
+      link: https://scholar.google.com/citations?user=Sf0vQAwAAAAJ&hl=en
 
