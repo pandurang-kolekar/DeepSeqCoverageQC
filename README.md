@@ -51,7 +51,7 @@
 ### Using [Docker](https://www.docker.com/)
 
 ```bash
-docker run -it pskolekar/deepseqcoverageqc:0.2.1 --help
+docker run -it pskolekar/deepseqcoverageqc:0.3.0 --help
 ```
 
 ### Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)

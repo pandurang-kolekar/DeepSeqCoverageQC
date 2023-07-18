@@ -8,7 +8,7 @@
 ## :simple-docker: Using [Docker](https://www.docker.com/)
 
 ```bash
-docker run -it pskolekar/deepseqcoverageqc --help
+docker run -it pskolekar/deepseqcoverageqc:0.3.0 DeepSeqCoverageQC --help
 ```
 
 ## :simple-anaconda: Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)

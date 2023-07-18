@@ -1,9 +1,22 @@
 [tool.poetry]
 name = "DeepSeqCoverageQC"
-version = "0.2.1"
+version = "0.3.0"
 description = "Compute coverage QC metrics for deep targeted sequencing data"
 authors = ["Pandurang Kolekar <pandurang.kolekar@gmail.com>"]
 readme = "README.md"
+
+[tool.poetry_bumpversion.file."deepseqcoverageqc/__init__.py"]
+
+[[tool.poetry_bumpversion.replacements]]
+files = ["Dockerfile"]
+search = 'version"="{current_version}"'
+replace = 'version"="{new_version}"'
+
+[[tool.poetry_bumpversion.replacements]]
+files = ["docs/install.md", "README.md", ".github/workflows/docker-build.yml"]
+search = '/deepseqcoverageqc:{current_version}'
+replace = '/deepseqcoverageqc:{new_version}'
+
 
 [tool.poetry.scripts]
 DeepSeqCoverageQC = "deepseqcoverageqc.panelQC:DeepSeqCoverageQC"
