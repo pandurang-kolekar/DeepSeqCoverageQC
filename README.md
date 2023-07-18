@@ -51,7 +51,7 @@
 ### Using [Docker](https://www.docker.com/)
 
 ```bash
-docker run -it pskolekar/deepseqcoverageqc --help
+docker run -it pskolekar/deepseqcoverageqc:0.2.1 --help
 ```
 
 ### Using [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
@@ -152,7 +152,8 @@ Manuscript under preparation
 
 ## Contact
 
-- [Pandurang Kolekar](mailto:pandurang.kolekar@gmail.com)
+- [Dr. Pandurang Kolekar](mailto:pandurang.kolekar@gmail.com)
+- [Dr. Xiaotu Ma](mailto:Xiaotu.Ma@stjude.org)
 
 ## COPYRIGHT
 
