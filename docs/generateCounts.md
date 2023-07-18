@@ -13,7 +13,7 @@
 ### :simple-docker: Docker image for SequencErr can be run as follows
 
 ```
-docker run stjudecloud/sequencerr:branch-sequencErr-1.0.0
+docker run pskolekar/sequencerr:v2.0.9 sequencerr
 ```
 
 - Users are recommended to use `-regions` option to provide panel BED file to 
