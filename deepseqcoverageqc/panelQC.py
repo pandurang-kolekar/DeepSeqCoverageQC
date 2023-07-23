@@ -11,6 +11,7 @@ from .coverageQC import computeCoverage
 
 
 @click.group(name="DeepSeqCoverageQC")
+@click.version_option()
 def DeepSeqCoverageQC():
     """
     Compute coverageQC for targeted deep sequencing data
