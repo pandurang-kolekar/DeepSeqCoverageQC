@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "DeepSeqCoverageQC"
-version = "0.3.2"
+version = "0.3.3"
 description = "Compute coverage QC metrics for deep targeted sequencing data"
 authors = ["Pandurang Kolekar <pandurang.kolekar@gmail.com>"]
 readme = "README.md"

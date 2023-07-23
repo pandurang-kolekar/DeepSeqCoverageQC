@@ -39,4 +39,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/deepseqcoverageqc:0.3.2
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/deepseqcoverageqc:0.3.3
