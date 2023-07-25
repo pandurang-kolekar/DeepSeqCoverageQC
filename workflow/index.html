@@ -462,15 +462,8 @@
 <h5 id="workflow">Workflow</h5>
 <h6 id="steps-in-the-deepseqcoverageqc-workflow">Steps in the DeepSeqCoverageQC workflow</h6>
 <p>The following flow chart describes the steps to generate coverage QC metrics</p>
-<pre class="mermaid"><code>graph TD
-  A(panelFile) ----&gt; B[/buildIndex/];
-  B -- panelPosFile, summaryPosFile --&gt;C[/computeCoverageQC/];
-  D(BAM) ----&gt; E[/SequencErr/];
-  F(panelBedFile) ----&gt; E[/SequencErr/];
-  E -- countFile --&gt;C;
-  C --&gt; G(Panel_regionQC)
-  C --&gt; H(Sample_summaryQC)
-</code></pre>
+<p></br></p>
+<p><img alt="workflow" class="center" src="../images/deepSeqWorkflow.png" style="height:480px;width:400px" /></p>
 
 
 

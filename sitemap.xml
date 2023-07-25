@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pandurang-kolekar.github.io/DeepSeqCoverageQC/</loc>
-         <lastmod>2023-07-23</lastmod>
+         <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pandurang-kolekar.github.io/DeepSeqCoverageQC/buildIndex/</loc>
-         <lastmod>2023-07-23</lastmod>
+         <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pandurang-kolekar.github.io/DeepSeqCoverageQC/computeCoverage/</loc>
-         <lastmod>2023-07-23</lastmod>
+         <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pandurang-kolekar.github.io/DeepSeqCoverageQC/generateCounts/</loc>
-         <lastmod>2023-07-23</lastmod>
+         <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pandurang-kolekar.github.io/DeepSeqCoverageQC/install/</loc>
-         <lastmod>2023-07-23</lastmod>
+         <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pandurang-kolekar.github.io/DeepSeqCoverageQC/main/</loc>
-         <lastmod>2023-07-23</lastmod>
+         <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://pandurang-kolekar.github.io/DeepSeqCoverageQC/workflow/</loc>
-         <lastmod>2023-07-23</lastmod>
+         <lastmod>2023-07-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
